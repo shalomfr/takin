@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ניהול תקין – קטלוג שירותים</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;900&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8953E;
+  --gold-light: #D4AF5A;
+  --gold-soft: #F5ECD7;
+  --navy: #0A1628;
+  --navy-mid: #162039;
+  --navy-light: #1E2D4F;
+  --slate: #2A3A5C;
+  --cream: #FAF7F0;
+  --cream-dark: #EDE8DC;
+  --text-dark: #1A1A2E;
+  --text-mid: #4A4A6A;
+  --text-light: #8A8AA0;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 40%, rgba(184,149,62,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(184,149,62,0.05) 0%, transparent 50%);
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.5) 49px, rgba(255,255,255,0.5) 50px),
+    repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.5) 49px, rgba(255,255,255,0.5) 50px);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeUp 1.2s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  animation: fadeUp 1.2s ease-out 0.2s both;
+}
+
+.hero h1 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1.2s ease-out 0.4s both;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--gold);
+  font-weight: 300;
+  font-size: 0.55em;
+  margin-top: 0.3em;
+}
+
+.hero-line {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 2rem auto;
+  animation: expandLine 1s ease-out 0.8s both;
+}
+
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to { width: 80px; opacity: 1; }
+}
+
+.hero-subtitle {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.15rem;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+  animation: fadeUp 1.2s ease-out 1s both;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.scroll-indicator::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* ─── SECTIONS ─── */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-line {
+  width: 50px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.5rem auto;
+}
+
+.section-desc {
+  color: var(--text-mid);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─── ABOUT / INTRO ─── */
+.about-band {
+  background: var(--navy);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-band::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,149,62,0.07);
+}
+
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.about-inner .section-label { color: var(--gold-light); }
+
+.about-inner .section-title { color: var(--white); }
+
+.about-text {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.1rem;
+  line-height: 2;
+  font-weight: 300;
+}
+
+/* ─── SERVICES GRID ─── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 2.8rem 2.2rem;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(10,22,40,0.08);
+  border-color: rgba(184,149,62,0.15);
+}
+
+.service-card:hover::before {
+  height: 100%;
+}
+
+.service-number {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(184,149,62,0.1);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.35rem;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.service-tag {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.3rem 1rem;
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* ─── PROCESS ─── */
+.process-section {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  padding: 6rem 2rem;
+}
+
+.process-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  right: 28px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.step-dot {
+  width: 58px;
+  min-width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.step-content h4 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.2rem;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─── PACKAGES ─── */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.package-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.package-card:hover {
+  box-shadow: 0 25px 60px rgba(10,22,40,0.1);
+}
+
+.package-card.featured {
+  border: 2px solid var(--gold);
+}
+
+.package-card.featured .package-header {
+  background: var(--navy);
+}
+
+.package-card.featured .package-header h3,
+.package-card.featured .package-header .package-label {
+  color: var(--white);
+}
+
+.package-card.featured .package-header .package-price {
+  color: var(--gold-light);
+}
+
+.package-header {
+  padding: 2.5rem 2rem 2rem;
+  background: linear-gradient(135deg, #F8F6F0 0%, var(--cream) 100%);
+  text-align: center;
+  position: relative;
+}
+
+.package-label {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.package-header h3 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.7rem;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.package-price {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  padding: 0.3rem 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.package-body {
+  padding: 2rem;
+}
+
+.package-body ul {
+  list-style: none;
+}
+
+.package-body li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  line-height: 1.6;
+}
+
+.package-body li::before {
+  content: '◆';
+  color: var(--gold);
+  font-size: 0.5rem;
+  min-width: 12px;
+}
+
+.package-body li:last-child { border-bottom: none; }
+
+.package-cta {
+  display: block;
+  margin: 1.5rem 2rem 2rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: transparent;
+}
+
+.package-cta:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.package-card.featured .package-cta {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+.package-card.featured .package-cta:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+/* ─── VALUES ─── */
+.values-band {
+  background: var(--navy);
+  padding: 6rem 2rem;
+}
+
+.values-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.values-inner .section-title { color: var(--white); }
+.values-inner .section-desc { color: rgba(255,255,255,0.5); }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.value-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(184,149,62,0.12);
+  transition: all 0.4s ease;
+}
+
+.value-item:hover {
+  border-color: rgba(184,149,62,0.35);
+  background: rgba(184,149,62,0.03);
+}
+
+.value-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.value-item h4 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.15rem;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.value-item p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.cta-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 3rem;
+  background: var(--white);
+  border: 1px solid rgba(184,149,62,0.2);
+  position: relative;
+}
+
+.cta-box::before,
+.cta-box::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+
+.cta-box::before {
+  top: -1px;
+  right: -1px;
+  border-width: 2px 2px 0 0;
+}
+
+.cta-box::after {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+
+.cta-box h2 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-box p {
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.cta-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.cta-contact-item {
+  text-align: center;
+}
+
+.cta-contact-item .label {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+}
+
+.cta-contact-item .value {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  font-weight: 500;
+  direction: ltr;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--navy);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(184,149,62,0.15);
+}
+
+.footer-logo {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.3rem;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.footer p {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+/* ─── ANIMATIONS ON SCROLL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .packages-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-timeline::before { right: 28px; }
+  .cta-box { padding: 3rem 1.5rem; }
+  .cta-contacts { gap: 1.5rem; }
+  .section { padding: 4rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .values-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">הצעת שירות</div>
+    <h1>
+      ניהול תקין
+      <span>עטיפה ניהולית לעמותות וחברות</span>
+    </h1>
+    <div class="hero-line"></div>
+    <p class="hero-subtitle">
+      אנחנו מספקים מעטפת ניהולית מקצועית ומקיפה לעמותות וחברות,
+      כדי שתוכלו להתמקד במה שחשוב באמת – המשימה שלכם
+    </p>
+  </div>
+  <div class="scroll-indicator">גלול</div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about-band">
+  <div class="about-inner reveal">
+    <div class="section-label">אודותינו</div>
+    <h2 class="section-title">מי אנחנו</h2>
+    <div class="section-line" style="margin: 1.5rem auto;"></div>
+    <p class="about-text">
+      אנחנו חברה המתמחה בליווי עמותות, חברות לתועלת הציבור ומלכ"רים 
+      בכל ההיבטים הניהוליים והרגולטוריים. הצוות שלנו כולל מומחים בתחום 
+      הניהול התקין, דיווחים לרשויות, ועמידה בדרישות החוק – הכל כדי שתוכלו 
+      לפעול בשקט נפשי ולהתרכז בקידום המטרות שלכם.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section class="section">
+  <div class="section-header reveal">
+    <div class="section-label">מה אנחנו מציעים</div>
+    <h2 class="section-title">שירותים</h2>
+    <div class="section-line"></div>
+    <p class="section-desc">
+      חבילת שירותים מקיפה שמכסה את כל הצרכים הניהוליים של הארגון שלכם
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01</div>
+      <h3>אישור ניהול תקין</h3>
+      <p>
+        טיפול מלא בהגשה, חידוש ושמירה על אישור ניהול תקין מרשם העמותות. 
+        אנו מוודאים שכל הדרישות מתקיימות לאורך כל השנה.
+      </p>
+      <span class="service-tag">ליבת השירות</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-number">02</div>
+      <h3>דיווחים לרשויות</h3>
+      <p>
+        הכנה והגשה של דוחות שנתיים, דוחות כספיים, דיווחים לרשם העמותות, 
+        רשות המיסים וגופים רגולטוריים נוספים – בזמן ובמקצועיות.
+      </p>
+      <span class="service-tag">ציות רגולטורי</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-number">03</div>
+      <h3>ניהול ישיבות ופרוטוקולים</h3>
+      <p>
+        ארגון ישיבות ועד, אסיפות כלליות ומליאות. 
+        הכנת סדר יום, הפקת פרוטוקולים מקצועיים ומעקב אחר החלטות.
+      </p>
+      <span class="service-tag">ממשל תאגידי</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-number">04</div>
+      <h3>ניהול כספי ותקציבי</h3>
+      <p>
+        בניית תקציב שנתי, מעקב אחר ביצוע תקציבי, 
+        ניהול תזרים מזומנים ודיווחים כספיים תקופתיים להנהלה ולדירקטוריון.
+      </p>
+      <span class="service-tag">בקרה פיננסית</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-number">05</div>
+      <h3>ייעוץ משפטי ורגולטורי</h3>
+      <p>
+        ליווי בסוגיות משפטיות הקשורות לפעילות העמותה, 
+        עדכונים בשינויי חקיקה ורגולציה, וסיוע בהתאמת הפעילות לדרישות החוק.
+      </p>
+      <span class="service-tag">ייעוץ</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-number">06</div>
+      <h3>הטמעת מערכות ואוטומציה</h3>
+      <p>
+        הטמעת מערכות ניהול דיגיטליות, אוטומציה של תהליכים חוזרים, 
+        והנגשת מידע ודוחות בזמן אמת לכל בעלי התפקידים בארגון.
+      </p>
+      <span class="service-tag">טכנולוגיה</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROCESS ═══════ -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="section-header reveal">
+      <div class="section-label">איך זה עובד</div>
+      <h2 class="section-title">תהליך העבודה</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step reveal">
+        <div class="step-dot">א</div>
+        <div class="step-content">
+          <h4>פגישת היכרות ואבחון</h4>
+          <p>נפגשים להבנת הצרכים, מיפוי המצב הקיים, וזיהוי הפערים הניהוליים והרגולטוריים של הארגון.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot">ב</div>
+        <div class="step-content">
+          <h4>בניית תוכנית עבודה</h4>
+          <p>מכינים תוכנית מותאמת אישית עם לוחות זמנים ברורים, חלוקת אחריות ויעדים מדידים.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot">ג</div>
+        <div class="step-content">
+          <h4>הטמעה וביצוע</h4>
+          <p>מתחילים לעבוד – הסדרת כל הנדרש, הגשת דיווחים, והטמעת מערכות ניהול בארגון.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot">ד</div>
+        <div class="step-content">
+          <h4>ליווי שוטף ובקרה</h4>
+          <p>ליווי רציף לאורך כל השנה – מעקב, בקרה, דיווחים תקופתיים ועדכונים שוטפים.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PACKAGES ═══════ -->
+<section class="section">
+  <div class="section-header reveal">
+    <div class="section-label">מסלולים</div>
+    <h2 class="section-title">חבילות שירות</h2>
+    <div class="section-line"></div>
+    <p class="section-desc">
+      בחרו את המסלול שמתאים לגודל ולצרכים של הארגון שלכם
+    </p>
+  </div>
+
+  <div class="packages-grid">
+
+    <div class="package-card reveal">
+      <div class="package-header">
+        <div class="package-label">מסלול בסיסי</div>
+        <h3>יסודות</h3>
+        <div class="package-price">לעמותות בתחילת דרכן</div>
+      </div>
+      <div class="package-body">
+        <ul>
+          <li>טיפול בהשגת אישור ניהול תקין</li>
+          <li>הגשת דוח שנתי לרשם העמותות</li>
+          <li>הכנת פרוטוקולים לישיבות ועד</li>
+          <li>ייעוץ רגולטורי בסיסי</li>
+          <li>תמיכה טלפונית ובמייל</li>
+        </ul>
+      </div>
+      <a class="package-cta">צרו קשר</a>
+    </div>
+
+    <div class="package-card featured reveal">
+      <div class="package-header">
+        <div class="featured-badge">מומלץ</div>
+        <div class="package-label">מסלול מקיף</div>
+        <h3>מקצועי</h3>
+        <div class="package-price">לעמותות וחברות פעילות</div>
+      </div>
+      <div class="package-body">
+        <ul>
+          <li>כל שירותי מסלול יסודות</li>
+          <li>ניהול כספי ותקציבי מלא</li>
+          <li>דיווחים תקופתיים להנהלה</li>
+          <li>ארגון אסיפות כלליות ומליאות</li>
+          <li>הטמעת מערכת ניהול דיגיטלית</li>
+          <li>ליווי משפטי ורגולטורי שוטף</li>
+          <li>מנהל לקוח ייעודי</li>
+        </ul>
+      </div>
+      <a class="package-cta">צרו קשר</a>
+    </div>
+
+    <div class="package-card reveal">
+      <div class="package-header">
+        <div class="package-label">מסלול פרימיום</div>
+        <h3>אנטרפרייז</h3>
+        <div class="package-price">לארגונים גדולים ומורכבים</div>
+      </div>
+      <div class="package-body">
+        <ul>
+          <li>כל שירותי המסלול המקצועי</li>
+          <li>ליווי צמוד עם צוות ייעודי</li>
+          <li>אוטומציה מלאה של תהליכים</li>
+          <li>דוחות בזמן אמת ודשבורד ניהולי</li>
+          <li>ייעוץ אסטרטגי ותכנון שנתי</li>
+          <li>הכשרת צוות הארגון</li>
+          <li>SLA מוגבר עם זמני תגובה מהירים</li>
+        </ul>
+      </div>
+      <a class="package-cta">צרו קשר</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ VALUES ═══════ -->
+<section class="values-band">
+  <div class="values-inner">
+    <div class="section-header reveal">
+      <div class="section-label">למה אנחנו</div>
+      <h2 class="section-title">הערכים שלנו</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-item reveal">
+        <div class="value-icon">🛡️</div>
+        <h4>אמינות</h4>
+        <p>עמידה בלוחות זמנים, שקיפות מלאה ומחויבות לתוצאות</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-icon">⚙️</div>
+        <h4>מקצועיות</h4>
+        <p>צוות מומחים עם ניסיון עשיר בניהול עמותות וחברות</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-icon">🤝</div>
+        <h4>שירות אישי</h4>
+        <p>התאמה מדויקת לצרכים הייחודיים של כל ארגון</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-icon">📊</div>
+        <h4>חדשנות</h4>
+        <p>שימוש בטכנולוגיות מתקדמות לייעול והנגשת הניהול</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <h2>מוכנים להתחיל?</h2>
+    <p>
+      נשמח להכיר את הארגון שלכם ולהציע לכם את המעטפת הניהולית
+      שתאפשר לכם לפעול בשקט ובביטחון
+    </p>
+    <div class="cta-contacts">
+      <div class="cta-contact-item">
+        <div class="label">טלפון</div>
+        <div class="value">03-000-0000</div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="label">דוא״ל</div>
+        <div class="value">info@nihul-takin.co.il</div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="label">כתובת</div>
+        <div class="value">תל אביב, ישראל</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="footer-logo">ניהול תקין</div>
+  <p>© כל הזכויות שמורות</p>
+</footer>
+
+<script>
+// Scroll reveal animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
